@@ -1,0 +1,14 @@
+
+
+.bacgr {
+    background-image: url("../picture/header_bg.jpg") ;
+}
+
+#leftHeader > a {
+    font-size: 10px;
+}
+
+.navbar-brand {
+    font-size: 10px;
+
+}

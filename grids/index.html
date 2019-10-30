@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: blueviolet;
+            height: 30px;
+        }
+
+        div.container {
+            display: grid;
+            /* grid-column-gap: 30px;
+            grid-row-gap: 30px; */
+            gap: 20px 30px;
+            /* align-items: end; */
+            /* justify-items: center; */
+            grid-template-areas:
+                "logo navbar navbar"
+                "sidebar body body"
+                "sidebar footer footer";
+                
+            /* grid-template-columns: repeat(auto-fill, minmax(300px, lfr)); */
+        }
+
+        .d1 {
+            /* grid-column-start: 1;
+            grid-column-end: 5; */
+            grid-area: navbar;
+        }
+
+        .d2 {
+            grid-area: logo;
+            /* grid-column: 2/4; */
+        }
+
+        .d5 {
+            grid-area: footer;
+            /* grid-row:2/4; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d1">1</div>
+        <div class="d2">2</div>
+        <div class="d3">3</div>
+        <div class="d4">4</div>
+        <div class="d5">5</div>
+    </div>
+</body>
+
+</html>
