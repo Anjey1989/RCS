@@ -97,14 +97,123 @@ for (var i = 0; i < 5; i++) {
 var some_number = 0;
 do {
     some_number++;
-    console.log("kaut kads cipars"+some_number);
-} while (some_number < 5) 
+    console.log("kaut kads cipars" + some_number);
+} while (some_number < 5)
 
 var mansObjekts = [
-    {name:"Andrejs", surname:"Savins"},
-    {name:"peteris", surname:"balodis"}
+    { name: "Andrejs", surname: "Savins" },
+    { name: "peteris", surname: "balodis" }
 ];
 
-for (var i = 0; i <mansObjekts.length; i++) {
+for (var i = 0; i < mansObjekts.length; i++) {
     console.log(mansObjekts[i].name);
 }
+
+var array = [1, 2, 3, 4];
+
+console.log(array);
+
+console.log(typeof array);
+
+var arrayB = array;
+array.push(5);
+console.log(array);
+console.log(arrayB);
+
+array = ["a", "b"];
+console.log(array);
+console.log(arrayB);
+
+var test = "global";
+
+console.log(test);
+
+function functionName() {
+    console.log(test);
+}
+
+functionName();
+
+function functionNameNrTwo() {
+    var test = "notGlobal";
+    console.log(test);
+}
+
+functionNameNrTwo();
+
+console.log("new lines");
+
+var masivs = [1, 2, 3];
+
+console.log(masivs.length);
+
+masivs[5] = 60;
+
+console.log(masivs);
+
+masivs.forEach(function (elements) {
+    console.log(elements);
+})
+
+masivs.pop();
+console.log(masivs);
+masivs.shift();
+console.log(masivs);
+masivs.unshift("jaunums");
+console.log(masivs);
+masivs.push(7);
+console.log(masivs);
+
+console.log(masivs.indexOf("jaunums"));
+
+var jaunsMasivs = masivs.slice(1, 4); // splice izmainas originalos masivu,bet slice nee
+
+console.log(jaunsMasivs);
+console.log(masivs);
+
+console.log(masivs.filter(function (params) {
+    return params > 2;
+}))
+
+console.log(masivs.reverse());
+
+thirdMassive = masivs.concat(jaunsMasivs);
+
+console.log(thirdMassive); //apskaties string methods and array methods
+
+console.log("kaut kas jauns");
+
+
+
+function summit(param, paramTwo) {
+    return param + paramTwo;
+}
+
+var kautKas = summit(2, 3);
+console.log(kautKas);
+
+(function calc(param) {
+    console.log("calc function called" + " " + param);
+})(10)
+
+function message(message) {
+    console.log(arguments);
+}
+
+message("hi", "roland");
+
+function smtImportant(numbers) {
+    var i = arguments.length;
+    // console.log(i);
+    var sumOf = 0;
+    var j = 0;
+    while (j < i) {
+        sumOf = sumOf + arguments[j];
+        j++;
+    }
+    console.log(sumOf);
+}
+
+
+smtImportant(2, 3, "4", 5);
+
