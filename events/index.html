@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>events</title>
+</head>
+<body>
+    <p>tests</p>
+    <button>click me</button>
+    <p>tests 2</p>
+    <button onclick=listener2()>Click</button>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        console.log("window loaded");
+    }
+
+    var btn = document.querySelector("button");
+    console.log(btn);
+
+    btn.onclick = function () {
+        console.log("btn click");
+    }
+
+    btn.onclick = function () {
+        console.log("clicked");
+    }
+
+    var p = document.querySelector("p");
+    p.onmousedown = function () {
+        console.log("mouse down on P");
+    }
+
+    function listener() {
+        console.log("function listener");
+    }
+
+    p.addEventListener("mouseup",listener);
+
+    function listener2 () {
+        console.log("function listener 2");
+    }
+
+    p.addEventListener("mouseenter",listener2);
+    // console.log(btn);
+
+    setTimeout(function() {
+        p.removeEventListener("mouseenter",listener2)
+    }, 5000);
+
+    var par = document.querySelectorAll("p");
+    console.log(par);
+
+    par.forEach(p => p.addEventListener("click",listener));
+
+</script>
