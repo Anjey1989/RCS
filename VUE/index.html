@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .manaKlase {
+            background-color: red;
+        }
+
+        .manaOtraKlase {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-show="title">{{title}}</h1>
+        <p>{{ hello }}</p>
+
+        <p>{{skaitlis}}</p>
+        <p>{{bool}}</p>
+        <p>{{masivs[2]}}</p>
+        <p>{{mansObjekts[2].active}}</p>
+        <p>{{manaFunkcija()}}</p>
+        <button @click="poga">poga</button>
+        <p v-html="html">{{html}}</p>
+        <button @click="hello='sveika pasaule!'">Change hello to latvian</button>
+        <img v-bind:src="img.src" v-bind:alt="img.alt">
+        <h2>{{input}}</h2>
+        <input type="text" v-model="input">
+        <button @click="pushMe">push me</button>
+        <input type="text" v-model="input" @keyup.enter="output">
+        <button @click="a++">{{a}}</button>
+        {{compA}}
+
+        <div :style="{width:platums, height:height}" :class="{manaKlase:active, manaOtraKlase:!active}"></div>
+        <input type="text" v-model="platums">
+        <input type="checkbox" v-model="active">
+        <input type="radio" v-model="active" :value="true">
+        <input type="radio" v-model="active" :value="false">
+        <select v-if="active" v-model="selection">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+        <div v-else>
+            <p>Make active to get gender</p>
+        </div>
+        <div v-if="selection==='Other'">
+            <p>{{selection}}</p>
+        </div>
+        <div v-else-if="selection==='Male'">
+            <p>Teksts</p>
+        </div>
+        <div v-else>
+                {{selection}}
+                {{compA}}
+        </div>
+        <ul>
+            <li v-for="(vards, kautkas) in mansObjekts">
+               {{kautkas}}. {{vards.name}}.{{kautkas}}
+            </li>
+        </ul>
+    </div>
+    <!-- <p>{{ hello }}</p> -->
+
+</body>
+
+</html>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            selection: "selekcija",
+            platums: "150px",
+            height: "150px",
+            active: false,
+            a: 0,
+            img: { alt: "mans attels", src: "" },
+            title: "mans virsraksts",
+            skaitlis: 0,
+            bool: true,
+            hello: "hello world",
+            masivs: ["!", 1, 2],
+            mansObjekts: [
+                { name: "Andrejs", age: 30 },
+                { name: "Peteris", age: 30 },
+                { name: "Sandija", age: 30, active: true },
+            ],
+            html: "<strong>text goes here </strong>",
+            input: "lauks",
+        },
+        methods: {
+            output: function () {
+                alert(this.input)
+            },
+            pushMe: function (event) {
+                console.log(event);
+            },
+            manaFunkcija: function () {
+                return "Hi " + this.mansObjekts[1].name;
+            },
+            poga: function () {
+                this.mansObjekts[1].name = "Dagnija";
+            }
+        },
+        computed: {
+            compA: function () {
+                if (this.a === 10) {
+                    this.a = 0;
+                }
+                return this.a
+            }
+        }
+    })
+</script>
